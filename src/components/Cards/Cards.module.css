@@ -1,0 +1,25 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"); */
+
+.container {
+  margin: 50px 0;
+}
+
+.card {
+  margin: 0 2% !important;
+}
+
+/* h5 {
+  font-family: "Permanent Marker", cursive;
+} */
+
+.infected {
+  border-bottom: 10px solid rgba(0, 132, 161, 0.5);
+}
+
+.recovered {
+  border-bottom: 10px solid rgba(129, 137, 78, 0.5);
+}
+
+.deaths {
+  border-bottom: 10px solid rgba(229, 89, 130, 0.5);
+}
