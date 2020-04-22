@@ -8,37 +8,37 @@ const Chart = () => {
   const [dailyData, setDailyData] = useState([]);
 
   useEffect(() => {
-    const fetchAPI = async () => {
+    const fetchApi = async () => {
       setDailyData(await fetchDailyData());
     };
-    // console.log(dailyData.length);
-    fetchAPI();
-  });
 
-  const lineChart = dailyData.length ? (
+    // console.log("Chart dailyData", dailyData);
+
+    fetchApi();
+  }, [dailyData]);
+
+  const lineChart = dailyData ? (
     <Line
       data={{
         labels: dailyData.map(({ date }) => date),
         datasets: [
           {
-            data: dailyData.map((data) => data.confirmed),
+            data: dailyData.map(({ confirmed }) => confirmed),
             label: "Infected",
-            borderColor: "#3333ff",
+            borderColor: "#0084C9",
             fill: true,
           },
           {
-            data: dailyData.map((data) => data.deaths),
+            data: dailyData.map(({ deaths }) => deaths),
             label: "Deaths",
-            borderColor: "red",
-            backgroundColor: "rgba(255, 0, 0, 0.5)",
+            borderColor: "#E55950",
+            backgroundColor: "rgba(229, 89, 130, .5)",
             fill: true,
           },
         ],
       }}
     />
   ) : null;
-
-  // const barChart = ()
 
   return <div className={styles.container}>{lineChart}</div>;
 };

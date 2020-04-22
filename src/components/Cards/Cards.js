@@ -9,6 +9,9 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   // console.log("confirmed", confirmed);
   if (!confirmed) return "Loading...";
 
+  let recoveredFinal = (recovered.value * 100) / confirmed.value;
+  let deathsFinal = (deaths.value * 100) / confirmed.value;
+
   return (
     <div className={styles.container}>
       <Grid container spacing={7} justify="center">
@@ -33,7 +36,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
               <CountUp
                 start={0}
                 end={confirmed.value}
-                duration={3}
+                duration={2}
                 separator=","
               />
             </Typography>
@@ -66,14 +69,16 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
               <CountUp
                 start={0}
                 end={recovered.value}
-                duration={3}
+                duration={2}
                 separator=","
               />
             </Typography>
             <Typography color="textSecondary">
               {new Date(lastUpdate).toDateString()}
             </Typography>
-            <Typography variant="body2">Number of the Recovered</Typography>
+            <Typography variant="body2">
+              Number of the Recovered ({recoveredFinal.toFixed(2)}%)
+            </Typography>
           </CardContent>
         </Grid>
         <Grid
@@ -97,14 +102,16 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
               <CountUp
                 start={0}
                 end={deaths.value}
-                duration={3}
+                duration={2}
                 separator=","
               />
             </Typography>
             <Typography color="textSecondary">
               {new Date(lastUpdate).toDateString()}
             </Typography>
-            <Typography variant="body2">Number of Deaths</Typography>
+            <Typography variant="body2">
+              Number of Deaths ({deathsFinal.toFixed(2)}%)
+            </Typography>
           </CardContent>
         </Grid>
       </Grid>
