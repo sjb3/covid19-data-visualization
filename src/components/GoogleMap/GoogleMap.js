@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import GoogleMapReact from "google-map-react";
 import styles from "./GoogleMap.module.css";
+import covid19 from "../../images/covid19.png";
 
 const GoogleMap = () => {
   const [results, setResults] = useState([]);
@@ -16,7 +17,6 @@ const GoogleMap = () => {
 
   const countriesLocations = results.map((singleCountry, i) => (
     <div
-      className={styles.countryMarker}
       key={i}
       lat={singleCountry.coordinates.latitude}
       lng={singleCountry.coordinates.longitude}
@@ -28,9 +28,11 @@ const GoogleMap = () => {
         width: "30px",
         borderRadius: "50%",
         display: "inline - block",
+        textAlign: "center",
       }}
     >
-      {singleCountry.stats.confirmed}
+      <img src={covid19} alt="covid" className={styles.covid19Img} />
+      {singleCountry.stats.deaths}
     </div>
   ));
 

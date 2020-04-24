@@ -3,6 +3,10 @@
   margin: 5% auto;
 }
 
+.covid19Img {
+  width: 20px;
+}
+
 @media (max-width: 770px) {
   .mapContainer {
     width: 100% !important;
