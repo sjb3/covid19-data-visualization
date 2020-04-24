@@ -9,14 +9,17 @@
 
 .infected {
   border-bottom: 10px solid rgba(0, 132, 161, 0.5);
+  background: rgba(0, 132, 161, 0.1) !important;
 }
 
 .recovered {
   border-bottom: 10px solid rgba(129, 137, 78, 0.5);
+  background: rgba(129, 137, 78, 0.1) !important;
 }
 
 .deaths {
   border-bottom: 10px solid rgba(229, 89, 130, 0.5);
+  background: rgba(229, 89, 130, 0.1) !important;
 }
 
 @media (max-width: 770px) {
